@@ -1,0 +1,11 @@
+#!name=WLOC 虚拟定位
+#!desc=iOS 虚拟定位 - MITM 重写 Apple 定位 API，快捷指令一键改点
+#!homepage=https://github.com/chengsh2024/wloc-shortcut
+
+[Script]
+WLOC Response = type=http-response,pattern=^https?:\/\/(?:gs-loc(?:-cn)?\.apple\.com|bluedot\.is\.autonavi\.com(?:\.gds\.alibabadns\.com)?)\/clls\/wloc(?:\?.*)?$,requires-body=1,binary-body-mode=1,max-size=1048576,timeout=10,script-path=https://raw.githubusercontent.com/chengsh2024/wloc-shortcut/main/wloc-spoofer.js,argument=mode=response&debug=false
+
+WLOC Settings = type=http-request,pattern=^https?:\/\/gs-loc(?:-cn)?\.apple\.com\/wloc-settings\/,requires-body=0,max-size=0,timeout=10,script-path=https://raw.githubusercontent.com/chengsh2024/wloc-shortcut/main/wloc-settings.js
+
+[MITM]
+hostname = %APPEND% gs-loc.apple.com, gs-loc-cn.apple.com, bluedot.is.autonavi.com, bluedot.is.autonavi.com.gds.alibabadns.com
