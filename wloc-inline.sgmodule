@@ -1,5 +1,5 @@
-#!name=WLOC 虚拟定位（内嵌版）
-#!desc=iOS 虚拟定位 - 脚本内嵌，导入立即可用，配合快捷指令一键改点，定位请求直连不走节点
+#!name=WLOC 虚拟定位（内嵌版·全局直连）
+#!desc=iOS 虚拟定位 - 开VPN但不走节点，所有流量直连，感觉像没开VPN，配合快捷指令一键改点
 #!homepage=https://github.com/chengsh2024/wloc-shortcut
 
 [Script]
@@ -14,3 +14,5 @@ hostname = %APPEND% gs-loc.apple.com, gs-loc-cn.apple.com, bluedot.is.autonavi.c
 DOMAIN,gs-loc.apple.com,direct
 DOMAIN,gs-loc-cn.apple.com,direct
 DOMAIN,bluedot.is.autonavi.com,direct
+# 全局直连：所有其他流量都不走节点，感觉像没开VPN
+FINAL,direct

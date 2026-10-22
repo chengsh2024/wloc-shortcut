@@ -14,3 +14,5 @@ hostname = %APPEND% gs-loc.apple.com, gs-loc-cn.apple.com, bluedot.is.autonavi.c
 DOMAIN,gs-loc.apple.com,direct
 DOMAIN,gs-loc-cn.apple.com,direct
 DOMAIN,bluedot.is.autonavi.com,direct
+# 全局直连：所有其他流量都不走节点，感觉像没开VPN
+FINAL,direct
