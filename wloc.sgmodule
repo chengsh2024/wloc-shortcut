@@ -11,8 +11,12 @@ WLOC Settings = type=http-request,pattern=^https?:\/\/gs-loc(?:-cn)?\.apple\.com
 hostname = %APPEND% gs-loc.apple.com, gs-loc-cn.apple.com, bluedot.is.autonavi.com, bluedot.is.autonavi.com.gds.alibabadns.com
 
 [Proxy]
-# 本地直连代理，不需要任何远程服务器节点
+# 内置策略组：只有直连选项，选它就等于已连接
 DIRECT = direct
+
+[Proxy Group]
+# 选这个策略组，不需要任何远程服务器，直接显示已连接
+WLOC本地模式 = select, direct
 
 [Rule]
 DOMAIN,gs-loc.apple.com,DIRECT
