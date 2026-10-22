@@ -1,5 +1,5 @@
-#!name=WLOC 虚拟定位（内嵌版·全局直连）
-#!desc=iOS 虚拟定位 - 开VPN但不走节点，所有流量直连，感觉像没开VPN，配合快捷指令一键改点
+#!name=WLOC 虚拟定位（内嵌版·纯本地）
+#!desc=iOS 虚拟定位 - 纯本地直连，不需要任何服务器节点，开VPN就能用
 #!homepage=https://github.com/chengsh2024/wloc-shortcut
 
 [Script]
@@ -10,9 +10,13 @@ WLOC Settings = type=http-request,pattern=^https?:\/\/gs-loc(?:-cn)?\.apple\.com
 [MITM]
 hostname = %APPEND% gs-loc.apple.com, gs-loc-cn.apple.com, bluedot.is.autonavi.com, bluedot.is.autonavi.com.gds.alibabadns.com
 
+[Proxy]
+# 本地直连代理，不需要任何远程服务器节点
+DIRECT = direct
+
 [Rule]
-DOMAIN,gs-loc.apple.com,direct
-DOMAIN,gs-loc-cn.apple.com,direct
-DOMAIN,bluedot.is.autonavi.com,direct
-# 全局直连：所有其他流量都不走节点，感觉像没开VPN
-FINAL,direct
+DOMAIN,gs-loc.apple.com,DIRECT
+DOMAIN,gs-loc-cn.apple.com,DIRECT
+DOMAIN,bluedot.is.autonavi.com,DIRECT
+# 全局走本地直连，完全不经过任何远程服务器
+FINAL,DIRECT
