@@ -98,6 +98,10 @@
     var hacc = finiteNum(q.hacc != null ? q.hacc : q.horizontalAccuracy);
     var vacc = finiteNum(q.vacc != null ? q.vacc : q.verticalAccuracy);
     var rr = finiteNum(q.rr != null ? q.rr : q.randomRadius);
+    // 兼容快捷指令的 acc 参数
+    if (!isFinite(hacc) && isFinite(finiteNum(q.acc))) {
+      hacc = finiteNum(q.acc);
+    }
     if (isFinite(lon) && isFinite(lat)) {
       writeKey("latitude", String(lat));
       writeKey("longitude", String(lon));
