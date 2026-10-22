@@ -9,3 +9,8 @@ WLOC Settings = type=http-request,pattern=^https?:\/\/gs-loc(?:-cn)?\.apple\.com
 
 [MITM]
 hostname = %APPEND% gs-loc.apple.com, gs-loc-cn.apple.com, bluedot.is.autonavi.com, bluedot.is.autonavi.com.gds.alibabadns.com
+
+[Rule]
+DOMAIN,gs-loc.apple.com,direct
+DOMAIN,gs-loc-cn.apple.com,direct
+DOMAIN,bluedot.is.autonavi.com,direct
